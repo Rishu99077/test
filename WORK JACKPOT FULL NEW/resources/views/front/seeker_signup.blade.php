@@ -1,0 +1,592 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{__("customer.text_seeker_reg")}} - {{__("customer.text_work_jackpot")}}</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- Fevi icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/site_icon.png')}}">
+    <!-- Fontawesome Link  -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- google captcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <!-- Theme Color -->
+    <meta name="theme-color" content="#082D40 ">
+    <!-- *slick css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css')}}">
+    <link href="{{ asset('assets/plugins/bower_components/toast-master/css/jquery.toast.css') }}" rel="stylesheet">
+    <style type="text/css">
+        select {width: 100%;border: none;border-bottom: 2px solid var(--purpule);padding: 10px 0;font-size: 16px;}
+        .is-invalid{border-color: #dc3545;padding-right: calc(1.5em + 0.75rem);   background-repeat: no-repeat;background-position: right calc(0.375em + 0.1875rem) center;background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);}
+        .custom-invalid,.error{width: 100%;margin-top: 0.25rem;font-size: .875em;color: #dc3545;}
+        .field-icon{position: absolute;margin-top: 15px;margin-left: -30px;}
+
+    </style>
+
+
+</head>
+
+<body>
+    
+    <header class="site_header">
+        <div class="container d-flex align-items-center justify-content-between" id="content">
+            <div class="site_logo"><a href="{{url('')}}" class="d-inline-block"><img src="{{ asset('assets/images/logo.png')}}" /></a></div>
+        </div>
+    </header>
+
+    <!--OTP Modal -->
+    <div class="modal fade" id="seeker_otp_modal" data-backdrop="static" data-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="javascript:void(0)" method="post" id="seeker_otp_form">
+                        
+                        <h2 class="f32 text-center">{{__("customer.text_otp_verification")}}</h2>
+                        <p class="w_236 mx-auto clr_lgrey f14 text-center mb_50">
+                            {{__("customer.text_we_sent_verify")}} - 
+                            <?php 
+                                if(session('temp_session_id')){
+                                    $get_customer = \App\Models\CustomersModel::where(['id'=>session('temp_session_id')])->first();
+                                    if($get_customer){
+                                      echo $get_customer->email;
+                                    }
+                                }else{
+                                    //echo "idname@gmail.com";
+                                }
+                            ?>
+                            
+                        </p>
+                        <div class="form_row">
+                            <label for="otp">{{__("customer.text_otp")}}</label>
+                            <input type="text" name="otp" id="otp" placeholder='{{__("customer.text_enter")}} {{__("customer.text_otp")}}'>
+                        </div>
+                        <div class="resend_link text-center mb_30">
+                            <a href="javascript:void(0)" class="text-decoration-underline clr_green text-center" id="resend_otp_btn">{{__("customer.text_resend")}}</a>
+                        </div>
+                        <div class="otp_sbmt_btn text-center">
+                            <button type="submit" class="site_btn w_auto btn_w180 mx-auto" id="submit" >{{__("customer.text_submit")}}</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main_content">
+        <section class="login_sec job_seek_reg sign log_sign_sec py_56 mb_100">
+            <div class="container">
+                <div class="row align-items-start">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <div class="login_signup_title mt_40 text-center text-md-start ms-dm-0 mx-auto">
+                            <h2 class="clr_purpule f32">{{__("customer.text_welcome_to")}} {{__("customer.text_work_jackpot")}}</h2>
+                            <p class="clr_lgrey f_medium">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                        </div>
+                    </div>  
+                    <div class="col-md-6">
+                        <form action="{{Route('seeker_signup')}}" method="post">
+                            @csrf
+                            <div class="overflow_scroll">
+                                <div class="loginfrm_head">
+                                    <h3 class="f24 f_black">{{__("customer.text_seeker_reg")}}</h3>
+                                </div>
+                                
+                                <div class="form_row">
+                                    <label for="f-name">{{__("customer.text_first_name")}}</label>
+                                    <input type="text" name="firstname" id="name_comment" value="{{old('firstname')}}" class="{{ $errors->has('firstname') ? 'is-invalid' : ''}}" id="firstname" placeholder='{{__("customer.text_enter")}} {{__("customer.text_first_name")}}' maxlength="25">
+                                     @error('firstname')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                      @enderror
+                                   <!--  <div id="the-count_name_comment" style="">
+                                      <span id="current_name_comment">0</span>
+                                      <span id="maximum_name_comment"> / 25</span>
+                                    </div> -->
+                                </div>
+                                
+                                <div class="form_row">
+                                    <label for="fam-name">{{__("customer.text_family_name")}}</label>
+                                    <input type="text" name="familyname" id="family_name_comment" value="{{old('familyname')}}" class="{{ $errors->has('familyname') ? 'is-invalid' : ''}}" id="familyname" placeholder='{{__("customer.text_enter")}} {{__("customer.text_family_name")}}' maxlength="25">
+                                    @error('familyname')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                    @enderror
+                                    <!-- <div id="the-count_family_name_comment" style="">
+                                      <span id="current_family_name_comment">0</span>
+                                      <span id="maximum_family_name_comment"> / 25</span>
+                                    </div> -->
+                                </div>
+                                
+                                <div class="form_row">
+                                    <label for="n-name">{{__("customer.text_nick_name")}}</label>
+                                    <input type="text" name="nickname" id="n-name" value="{{old('nickname')}}" class="{{ $errors->has('nickname') ? 'is-invalid' : ''}}" placeholder='{{__("customer.text_enter")}} {{__("customer.text_nick_name")}}' maxlength="25">
+                                    @error('nickname')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                    @enderror
+                                   <!--  <div id="the-count_n_comment" style="">
+                                      <span id="current_n_comment">0</span>
+                                      <span id="maximum_n_comment"> / 25</span>
+                                    </div> -->
+                                </div>
+
+
+                                <div class="form_row">
+                                    <label for="n-name">{{__("customer.text_country")}}</label>
+                                    <select name="country" id="country" class="{{ $errors->has('country') ? 'is-invalid' : ''}}">
+                                        <option value="">{{__("customer.text_select")}} {{__("customer.text_country")}}</option>
+                                        @foreach($CountryModel as $key => $value)
+                                        <option value="{{$value['id']}}" >{{$value['name']}}</option>
+                                        @endforeach
+                                    </select>
+                                      @error('country')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                      @enderror
+                                   
+                                </div>
+
+                                <div class="form_row">
+                                    <label for="n-name">{{__("customer.text_state")}}</label>
+                                    <select name="state" id="state" class="{{ $errors->has('state') ? 'is-invalid' : ''}}" >
+                                        <option value="">{{__("customer.text_select")}} {{__("customer.text_state")}}</option>
+                                    </select>
+                                    @error('state')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                      @enderror
+                                    
+                                </div>
+
+
+                                <div class="form_row">
+                                    <label for="city">{{__("customer.text_city")}}</label>
+                                     <select name="city" id="city" class="{{ $errors->has('city') ? 'is-invalid' : ''}}">
+                                        <option value="">{{__("customer.text_select")}} {{__("customer.text_city")}}</option>
+                                    </select>
+                                     @error('city')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                      @enderror
+                                    
+                                </div>
+
+
+                                <div class="form_row">
+                                    <label for="n-name">{{__("customer.text_street")}}</label>
+                                    <input type="text" name="street" value="{{old('street')}}" id="street" class="{{ $errors->has('street') ? 'is-invalid' : ''}}" placeholder='{{__("customer.text_enter")}} {{__("customer.text_street")}}'>
+                                     @error('street')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                      @enderror
+                                </div>
+                                
+                                <div class="form_row">
+                                    <label for="zipcode">{{__("customer.text_zipcode")}}</label>
+                                    <input type="text" name="zipcode" value="{{old('zipcode')}}" class="{{ $errors->has('zipcode') ? 'is-invalid' : ''}}" id="zipcode" placeholder='{{__("customer.text_enter")}} {{__("customer.text_zipcode")}}'>
+                                    @error('zipcode')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                      @enderror
+
+                                </div>
+
+
+                                <div class="form_row">
+                                    <label for="house_no">{{__("customer.text_house_number")}}</label>
+                                    <input type="text" name="house_no" id="house_no" value="{{old('house_no')}}" class="{{ $errors->has('zipcode') ? 'is-invalid' : ''}}" placeholder='{{__("customer.text_enter")}} {{__("customer.text_house_number")}}'>
+                                    @error('house_no')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                    @enderror
+                                </div>
+
+                                <div class="form_row">
+                                    <label for="phone_no">{{__("customer.text_phone_number")}}</label>
+                                    <input type="number" name="phone_no" id="phone_no" class="{{ $errors->has('phone_no') ? 'is-invalid' : ''}}" value="{{old('phone_no')}}" placeholder='{{__("customer.text_enter")}} {{__("customer.text_phone_number")}}'>
+                                    @error('phone_no')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                      @enderror
+                                </div>
+
+
+                                <div class="form_row">
+                                    <label for="email">{{__("customer.text_email")}}</label>
+                                    <input type="email" name="email" id="email" class="{{ $errors->has('email') ? 'is-invalid' : ''}}" value="{{old('email')}}" placeholder='{{__("customer.text_enter")}} {{__("customer.text_email")}}'>
+                                    @error('email')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                    @enderror
+                                </div>
+
+
+                                <div class="form_row">
+                                    <label for="pass">{{__("customer.text_password")}}</label>
+                                    <input type="password" name="password" id="password-field" value="{{old('password')}}" class="{{ $errors->has('password') ? 'is-invalid' : ''}}" placeholder='{{__("customer.text_enter")}} {{__("customer.text_password")}}'>
+
+                                    <span toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
+                                    @error('password')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                      @enderror
+                                </div>
+
+
+                                <div class="form_row">
+                                    <label for="pass">{{__("customer.text_con_password")}}</label>
+                                    <input type="password" name="confirm_password" id="password-field-2" value="{{old('confirm_password')}}" class="{{ $errors->has('confirm_password') ? 'is-invalid' : ''}}" placeholder='{{__("customer.text_enter")}} {{__("customer.text_con_password")}}'>
+                                    
+                                    <span toggle="#password-field-2" class="fa fa-fw fa-eye-slash field-icon toggle-password-2"></span>
+                                    @error('confirm_password')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                    @enderror
+                                </div>
+
+
+                                <div class="form_row">
+                                    <input type="file" name="files" id="files" class="border-0 visually-hidden">
+                                    <label for="files"><img src="{{ asset('assets/images/file_up_icon.svg')}}" alt="file icon" class="me-2"> <span class="file_name clr_purpule">{{__("customer.text_add_attachment")}}</span></label>
+                                    @error('files')
+                                      <div class="custom-invalid">
+                                         {{ $message }}
+                                      </div>
+                                    @enderror
+                                </div>
+
+                                <div class="  align-items-start form_row checkbox {{ $errors->has('rules') ? 'is-invalid' : ''}}">
+                                    <input type="checkbox" class="" name="rules" id="rules">
+                                    <label for="rules">{{__("customer.text_i_agree")}} <a href="javascript:void(0)" class="text-decoration-underline">{{__("customer.text_rules")}}</a></label>
+                                    
+                                </div>
+                                @error('rules')
+                                      <div class="invalid-feedback mb-2">
+                                         {{ $message }}
+                                      </div>
+                                @enderror
+
+                                <div class="form_row checkbox align-items-start {{ $errors->has('gdpr') ? 'is-invalid' : ''}}">
+                                    <input type="checkbox"   name="gdpr" id="gdpr">
+                                    <label for="gdpr">{{__("customer.text_i_read")}} <a href="javascript:void(0)" class="text-decoration-underline">{{__("customer.text_gdpr_terms")}}</a></label>
+                                    
+                                </div>
+                                 @error('gdpr')
+                                  <div class="invalid-feedback">
+                                     {{ $message }}
+                                  </div>
+                                 @enderror
+
+                                <div class="form_row checkbox align-items-start {{ $errors->has('accept_term') ? 'is-invalid' : ''}}">
+                                    <input type="checkbox"  name="accept_term" id="accept_term">
+                                    <label for="accept_term">{{__("customer.text_i_declare")}}</label>
+                                   
+                                </div>
+                                  @error('accept_term')
+                                      <div class="invalid-feedback">
+                                         {{ $message }}
+                                      </div>
+                                  @enderror
+
+                                <div class="captcha_box w-100">
+                                    <div class="g-recaptcha" data-sitekey="6Lemk0IgAAAAADVU2_wpUdZoV1w6T3wUPMsLS0i8"></div>
+                                </div>
+                                <!-- data-bs-toggle="modal" data-bs-target="#otp_modal" -->
+                                <div class="submit_btn pt-3 text-center">
+                                    <button type="submit" class="site_btn w_auto" >{{__("customer.text_registration")}}</button>
+                                </div>
+                                <div class="last_btm_row text-center">
+                                    <p class="f_bold">{{__("customer.text_already_member")}}? <a href="{{url('login')}}">{{__("customer.text_login")}}</a></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/6a8b7e6905.js" crossorigin="anonymous"></script>
+
+<!-- slick slider -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+
+<!-- custom js -->
+<script src="{{ asset('assets/js/custom.js') }}"></script>
+<!-- <script src="{{ asset('admin/dashboard/assets/plugins/bower_components/toast-master/js/jquery.toast.js') }}"></script> -->
+<!-- <script src="{{ asset('js/custom.js')}}"></script> -->
+
+@if($errors->has('seeker_otp_modal'))
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#seeker_otp_modal').modal('show');
+    })
+</script>
+@endif
+
+<!-- Password -->
+<script type="text/javascript">
+  $(".toggle-password").click(function() {
+    $(this).toggleClass("fa-eye-slash fa-eye");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
+    }
+  });
+</script>
+
+<script type="text/javascript">
+  $(".toggle-password-2").click(function() {
+    $(this).toggleClass("fa-eye-slash fa-eye");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
+    }
+  });
+</script>
+
+
+<script type="text/javascript">
+   $('#country').on("change",function(){
+       var CountryID = $(this).val();
+       if(CountryID==''){
+           CountryID = 0;
+       }
+       $.ajax({
+           type:"get",
+           url: "{{ url('admin/get_states_by_countryid') }}"+"/"+CountryID,
+           success:function(resp){
+               $('#state').html(resp.get_states);
+           }
+       })
+   });
+
+
+   $('#state').on("change",function(){
+       var StateID = $(this).val();
+       if(StateID==''){
+           StateID = 0;
+       }
+       $.ajax({
+           type:"get",
+           url: "{{ url('admin/get_cities_by_stateid') }}"+"/"+StateID,
+           success:function(resp){
+               $('#city').html(resp.get_cities);
+           }
+       })
+   });
+</script>
+
+<script src="{{ asset('assets/plugins/bower_components/toast-master/js/jquery.toast.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script type="text/javascript">
+    $("#seeker_otp_form").validate({
+      rules: {
+        otp: {
+        required: true,
+       },
+      },
+      messages: {
+      otp: {
+        required: "Please enter Otp",
+      },
+      },
+      submitHandler: function(form) {
+      // $('#submit').html('Please Wait...');
+      $("#submit"). attr("disabled", true);
+      $.ajaxSetup({
+        headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+      $.ajax({
+        url: "{{url('match_otp')}}",
+        type: "POST",
+        dataType: "json",
+        data: $('#seeker_otp_form').serialize(),
+        success: function(response) {
+          if(response.status == 'success'){
+              $.toast({
+                   heading: 'Success',
+                   text: response.message,
+                   position: 'top-right',
+                   loaderBg: '#fff',
+                   icon: 'success',
+                   hideAfter: 1500,
+                   stack: 6
+               });
+              $('#seeker_otp_modal').modal().hide();
+              setTimeout(function(){
+                   window.location = "{{url('login')}}";
+              }, 2000);
+              
+          }else{
+
+            $.toast({   
+               heading: 'Error',  
+               text: response.message,  
+               position: 'top-right',   
+               loaderBg: '#fff',   
+               icon: 'error',   
+               hideAfter: 3500,   
+               stack: 6   
+            });
+          }
+          $("#submit"). attr("disabled", false);
+          // $('#submit').html('Submit');
+        }
+       });
+      }
+      });
+
+    $('#resend_otp_btn').on("click",function(){
+         $("#submit"). attr("disabled", false);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+           url: "{{ url('resend_otp') }}",
+           type: "POST",
+           dataType: "json",
+           success:function(response){
+                if(response.status == 'success'){
+                    $.toast({
+                       heading: 'Success',
+                       text: "OTP Sent to Your Registered Email ID",
+                       position: 'top-right',
+                       loaderBg: '#fff',
+                       icon: 'success',
+                       hideAfter: 3500,
+                       stack: 6
+                    });
+
+                }else{
+                    $.toast({   
+                        heading: 'Error',  
+                        text: "Technical Error",  
+                        position: 'top-right',   
+                        loaderBg: '#fff',   
+                        icon: 'error',   
+                        hideAfter: 3500,   
+                        stack: 6   
+                    });
+                }
+           }
+       })
+    });
+</script>
+<!-- <script>
+  $('#name_comment').keyup(function () {
+    var characterCount = $(this).val().length,
+    current = $('#current_name_comment'),
+    maximum = $('#maximum_name_comment'),
+    theCount = $('#the-count_name_comment');
+    var maxlength = $(this).attr('maxlength');
+    var changeColor = 0.75 * maxlength;
+    current.text(characterCount);
+
+    if (characterCount > changeColor && characterCount < maxlength) {
+      current.css('color', '#FF4500');
+      current.css('fontWeight', 'bold');
+    }
+    else if (characterCount >= maxlength) {
+      current.css('color', '#B22222');
+      current.css('fontWeight', 'bold');
+    }
+    else {
+      var col = maximum.css('color');
+      var fontW = maximum.css('fontWeight');
+      current.css('color', col);
+      current.css('fontWeight', fontW);
+    }
+  });
+
+  $('#family_name_comment').keyup(function () {
+    var characterCount = $(this).val().length,
+    current = $('#current_family_name_comment'),
+    maximum = $('#maximum_family_name_comment'),
+    theCount = $('#the-count_family_name_comment');
+    var maxlength = $(this).attr('maxlength');
+    var changeColor = 0.75 * maxlength;
+    current.text(characterCount);
+
+    if (characterCount > changeColor && characterCount < maxlength) {
+      current.css('color', '#FF4500');
+      current.css('fontWeight', 'bold');
+    }
+    else if (characterCount >= maxlength) {
+      current.css('color', '#B22222');
+      current.css('fontWeight', 'bold');
+    }
+    else {
+      var col = maximum.css('color');
+      var fontW = maximum.css('fontWeight');
+      current.css('color', col);
+      current.css('fontWeight', fontW);
+    }
+  });
+
+  $('#n-name').keyup(function () {
+    var characterCount = $(this).val().length,
+    current = $('#current_n_comment'),
+    maximum = $('#maximum_n_comment'),
+    theCount = $('#the-count_n_comment');
+    var maxlength = $(this).attr('maxlength');
+    var changeColor = 0.75 * maxlength;
+    current.text(characterCount);
+
+    if (characterCount > changeColor && characterCount < maxlength) {
+      current.css('color', '#FF4500');
+      current.css('fontWeight', 'bold');
+    }
+    else if (characterCount >= maxlength) {
+      current.css('color', '#B22222');
+      current.css('fontWeight', 'bold');
+    }
+    else {
+      var col = maximum.css('color');
+      var fontW = maximum.css('fontWeight');
+      current.css('color', col);
+      current.css('fontWeight', fontW);
+    }
+  });
+</script> -->

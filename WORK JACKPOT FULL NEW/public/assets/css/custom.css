@@ -1,0 +1,548 @@
+
+.form-group select {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--purpule);
+    padding: 10px 0;
+    font-size: 14px;
+}
+.edit_form select{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--purpule);
+    padding: 10px 0;
+}
+
+.edit_text textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #004B75;
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 30px;
+    color: var(--purpule);
+    outline: none;
+}
+.add_btn{
+    width: 100px;
+    background: #fff;
+    border-color: #228EE3;
+    color: #228EE3;
+}
+.add_btn:hover{
+    background: #228EE3;
+    border-color: #228EE3;
+    color: #fff;
+}
+table.table-head{
+    background: #EBF5FC 0% 0% no-repeat padding-box;
+    font-size: 16px;
+    font-family: var(--bold);
+}
+.table-head tr th{
+    color: #19286B;
+}
+
+table tbody{
+    background: #ffffff;
+}
+table tbody tr td{
+    color: #747474;
+}
+.cli_img img {
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 2px solid #228EE3;
+}
+
+.Report-box{
+    background-color: #fff!important;
+    margin: 0 35px 10px 0;
+    padding: 17px;
+    background: #228EE3 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #228ee340;
+    border-radius: 6px;
+    width: 220px;
+    height: 60px;
+}
+
+.menu-header{
+    background: #19286B 0% 0% no-repeat padding-box;
+    border-radius: 12px 12px 0px 0px;
+    height: 80px;
+}
+.menu-header p{
+    padding-top: 20px;
+    font-size: 26px;
+    color: var(--white);
+    text-align: left;
+}
+
+.upload_btn {
+    background: #FFA800 0% 0% no-repeat padding-box;
+    margin-top: 20px;
+    align-items: center;
+    padding: 10px 25px;
+    border-radius: 6px;
+    border: 2px solid #FFA800;
+    font-size: 14px;
+    font-family: var(--bold);
+    color: var(--white);
+    margin-left: -30px;
+}
+.upload_btn:hover{
+    background: #fff;
+    color: #FFA800;
+    border: 2px solid #FFA800;
+}
+
+.send_btn{
+    margin-top: 20px;
+    padding: 10px 25px;
+    border-radius: 6px;
+    border: 2px solid var(--sky_blue);
+    font-size: 14px;
+    font-family: var(--bold);
+    background: var(--sky_blue);
+    color: var(--white);
+    margin-left: -30px;
+}
+.send_btn:hover{
+    background: #fff;
+    color: #228EE3;
+    border: 2px solid #228EE3;
+}
+
+.green_btn{
+    margin-top: 18px;
+    align-items: center;
+    padding: 10px 25px;
+    border-radius: 6px;
+    border: 2px solid #5AA136;
+    font-size: 14px;
+    font-family: var(--bold);
+    background: #5AA136;
+    color: var(--white);
+    width: 100px;
+}
+.green_btn:hover{
+    background: #fff;
+    color: #5AA136;
+    border: 2px solid #5AA136;
+}
+.my_pagination ul{
+    justify-content: center;
+}
+
+.my_pagination ul li a{
+    border: 2px solid var(--purpule)!important;
+    color: var(--purpule)!important;
+    background: transparent!important;
+    border-color: var(--purpule)!important;
+}
+
+.my_pagination span.page-link {
+    width: 34px;
+    height: 34px;
+    border: 2px solid var(--purpule)!important;
+    font-family: "bold"!important;
+    border-radius: 6px !important;
+    margin: 0 5px !important;
+    color: var(--purpule)!important;
+    padding: 0!important;
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+     /*background: var(--light_sky)!important; */
+    border-color: transparent!important;
+}
+
+.my_pagination .active span.page-link {
+    width: 34px;
+    height: 34px;
+    border: 2px solid var(--purpule)!important;
+    font-family: "bold"!important;
+    border-radius: 6px !important;
+    margin: 0 5px !important;
+    color: var(--purpule)!important;
+    padding: 0!important;
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+     background: var(--light_sky)!important; 
+    border-color: transparent!important;
+}
+
+.my_pagination ul li:last-child span{
+    background: transparent!important;
+    color: var(--purpule)!important;
+    border-color: var(--purpule)!important;
+    border-radius: 8px!important;
+}
+.my_pagination ul li:first-child span{
+    background: transparent!important;
+    color: var(--purpule)!important;
+    border-color: var(--purpule)!important;
+    border-radius: 8px!important;
+}
+.my_pagination ul li a:hover {
+    color: var(--white)!important;
+    background: var(--purpule)!important;
+}
+.my_pagination{
+    justify-content: center!important;
+}
+.look_btn{
+    box-shadow: 0px 3px 4px #19286B33;
+    background: #19286B 0% 0% no-repeat padding-box;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 25px;
+    border-radius: 6px;
+    border: 2px solid #19286B;
+    font-size: 12px;
+    font-family: var(--bold);
+    line-height: 1.75;
+    margin-left: -30px;
+}
+.look_btn:hover{
+    background: #fff; 
+    color: #19286B;
+    border: 2px solid #19286B;
+}
+.look_btn i{
+    margin-right: 10px;
+}
+.download_btn{
+    background: #228EE3 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 4px #228EE326;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 6px;
+    border: 2px solid #228EE3;
+    font-size: 12px;
+    font-family: var(--bold);
+    line-height: 1.75;
+    color: var(--white);
+    width: 100px;
+}
+.download_btn:hover{
+    background: #fff; 
+    color: #228EE3;
+    border: 2px solid #228EE3;
+}
+
+.approve_btn{
+    background: #5AA136 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 4px #5AA136;
+    color: #fff;
+    align-items: center;
+    border-radius: 6px;
+    border: 2px solid #5AA136;
+    font-size: 12px;
+    font-family: var(--bold);
+    line-height: 1.75;
+    color: var(--white);
+    width: 100px;
+}
+.approve_btn:hover{
+    background: #fff; 
+    color: #5AA136;
+    border: 2px solid #5AA136;
+}
+
+.reject_btn{
+    background: #af2c1f 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 4px #af2c1f;
+    color: #fff;
+    align-items: center;
+    border-radius: 6px;
+    border: 2px solid #af2c1f;
+    font-size: 12px;
+    font-family: var(--bold);
+    line-height: 1.75;
+    color: var(--white);
+    width: 100px;
+}
+.reject_btn:hover{
+    background: #fff; 
+    color: #af2c1f;
+    border: 2px solid #af2c1f;
+}
+
+
+
+.download_btn i{
+    margin-right: 5px;
+}
+
+.pay_btn{
+    background: #5AA136 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 3px #5AA136;
+    color: #fff;
+    align-items: center;
+    border-radius: 6px;
+    border: 2px solid #5AA136;
+    font-size: 12px;
+    font-family: var(--bold);
+    line-height: 1.75;
+    color: var(--white);
+    width: 100px;
+}
+.pay_btn:hover{
+    background: #fff; 
+    color: #5AA136;
+    border: 2px solid #5AA136;
+}
+
+
+.left_profile_pro{
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px 20px 40px;
+    width: 100%;
+    position: sticky;
+    top: 30px;
+}
+.contract_btn {
+        width: 100px;
+        background: #228ee3;
+        border-color: #228EE3;
+        color: #fff;
+        padding: 10px;
+        border: 2px solid #228ee3;
+        border-radius: 10px;
+    }
+.contract_btn:hover{
+    width: 100px;
+    background: #fff;
+    border-color: #228EE3;
+    color: #228ee3;
+    padding: 10px;
+    border: 2px solid #228ee3;
+    border-radius: 10px;
+}
+.contract_btn:hover img{
+    background: #228ee3;
+}
+div.seeker_reports {
+    padding: 0px 12px !important;
+}
+
+ .jc_left_s{
+    width: 100%;
+}
+.contact_tabs .nav-tabs a.nav-link {
+    min-height: 67px!important;
+}
+.jc_left_l_contract {
+    width: 100%;
+    height: 117px;
+    background: #ACD09A 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 5px #5aa13666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+.jc_left_l_doc {
+    width: 100%;
+    height: 117px;
+    background: #FFEECC80 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 5px #5aa13666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+.jc_left_l_bills{
+    width: 100%;
+    height: 117px;
+    background: #FFD37F 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 5px #5aa13666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;   
+}
+.jc_left_l_payed_bills{  
+    width: 100%;
+    height: 117px;
+    background: #C5E298 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 5px #5aa13666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;  
+
+}
+.job_card_wrapper_contract .jc_left_l_contract img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}
+.job_card_wrapper_contract {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-row-gap: 20px;
+    grid-column-gap: 30px;
+    margin-bottom: 20px;
+}
+.job_card_contract {
+    background: #FFFFFF;
+    box-shadow: 0px 10px 14px #19286b1a;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 5px 0 0;
+}
+
+.jcard_top_contract {
+    padding: 0 5px;
+}
+.jc_inbox_contract{
+    /*padding: 0px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    margin-top: -15px;*/
+}
+.jcard_center_self {
+   /* display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-row-gap: 12px;
+    grid-column-gap: 55px;*/
+    margin: 14px 0;
+    padding: 0 15px;
+}
+.jcard_center_self p{
+    text-align: left;
+    /*font: normal normal bold 12px/16px Satoshi;*/
+    letter-spacing: 0px;
+    color: #747474;
+    /*margin-top: -15px;*/
+    font-weight: 600;
+}
+
+/*new changes*/
+.jcard_center_self .download_button{float: right;background-color: #19286B;color: #fff;border: 2px solid #19286B}
+.jcard_center_self .download_button:hover{background-color: #fff;color: #19286B;border: 2px solid #19286B;}
+.jcard_center_self .text-pr{text-align: end;margin-top: -40px;}
+.download_all{background: #228ee3 0% 0% no-repeat padding-box;margin-top: 20px;align-items: center;
+    padding: 10px 25px;border-radius: 6px;border: 2px solid #228ee3;font-size: 14px;font-family: var(--bold);
+    color: var(--white);margin-left: -30px;}
+.download_all:hover {background: #fff;color: #228ee3;border: 2px solid #228ee3;}
+
+
+div#the-count_comment{
+    margin-top: -27px;
+}
+
+.payment_page .payment_btn{
+    background: #EBF5FC 0% 0% no-repeat padding-box;
+    border-radius: 6px;
+    padding: 15px 20px 15px 21px;
+}
+
+.payment_page .currency_sign{
+    color: #5AA136
+}
+.pay_box .pay_now{
+    background: #5AA136;
+    color: #FFF;
+    padding: 8px 24px;
+    border: 2px solid #5AA136;
+    border-radius: 6px;
+}
+.pay_box .pay_now:hover{
+    background: #FFF!important;
+    color: #5AA136!important;
+    border: 2px solid #5AA136;
+    border-radius: 6px;
+}
+.payment_page .pay_box{
+    text-align: end;
+}
+.filter_submit_btn {
+    margin-top: 20px;
+}
+
+/*Contact blade*/
+.member_block{    cursor: pointer;}
+.single_chat {    width: 100%;        height: 90%;}
+.single{width: calc(100% - 475px);}
+.send_btn {margin-left: 20px;padding: 8px 10px;display: inline-block;background: var( --sky_blue);color: var( --white);
+font-family: var( --f_black);font-size: 18px;border-radius: 6px;border: 3px solid var( --sky_blue);box-shadow: 0px 5px 20px #228ee366;
+text-align: center;}
+.single_chat h3.member_name {
+background: var(--purpule);text-align: center;color: var(--white);padding: 18px 20px;font-size: 18px;
+border-radius: 12px;margin-bottom: 15px;}
+div#send-email {background: var(--white);border-radius: 12px;padding: 40px 26px;}
+
+
+/*Header css 260822*/
+.dropdown_filter:nth-child(2) {
+                width: 100px;
+            }
+            
+            
+            @media (max-width: 575px){  
+                .dropdown_filter a.click_to_down, .dropdown_filter {
+                  max-width: 175px;
+                  margin: 2px;
+                }
+                .dash_filter .filter_submit_btn  {
+                      display: none;
+                }
+                .job_card_wrapper_contract {
+                    grid-template-columns: auto;
+                 }
+                .dropdown_filter a.click_to_down, .dropdown_filter {
+                    width: 175px!important;
+                    margin: 2px;
+                }
+            }
+            .job_details_sec .jc_right{
+                width: 10%;
+                /*position: absolute;*/
+                right: 0px;
+                margin-bottom: 15px;
+            }
+            .dash_filter > *:not(:last-child) {
+                margin-right: 20px;
+            }
+            .dash_filter {
+                display: flex;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                align-items: center;
+                margin: 0;
+            }
+
+    .upload_file_ui{background: #EBF5FC 0% 0% no-repeat padding-box;border: 2px dashed #228EE3;border-radius: 12px;height: 350px;width: 100%;}
+    .upload_file_ui .report_img {padding: 105px 0 0 0;}
+    .upload_file_ui .report_img_2 img{height: 300px;padding: 30px 0 0 0;}
+
+   .report_img p{color: #19286B;font-weight: bolder;}
+   .table-responsive {margin-top: 2.5rem;}
+   .table-responsive .table-pay{background: #19286B 0% 0% no-repeat padding-box;border-radius: 6px 6px 0px 0px;opacity: 0.5;}
+   .table-responsive .table-pay th{color: #fff;}
+   .table-responsive tbody tr { background: #EBF5FC 0% 0% no-repeat padding-box;opacity: 1;}
+   .table-responsive tbody td {color: #19286B;opacity: 1;}
+   .btn-back {color: #fff;background-color: #19286B;border-color: #19286B;}
+   .btn-back:hover{color: #19286B;background-color: #fff;border-color: #19286B;}
+   .btn-reject {color: #fff;background-color: #FFA800;border-color: #FFA800;}
+   .btn-reject:hover {color: #FFA800;background-color: #fff;border-color: #FFA800;}
+   .btn-invoice {color: #fff;background-color: #5AA136;border-color: #5AA136;}
+   .btn-invoice:hover {color: #5AA136;background-color: #fff;border-color: #5AA136;}
+   .btn-download {color: #fff;background-color: #228EE3;border-color: #228EE3;}
+   .btn-download:hover {color: #228EE3;background-color: #fff;border-color: #228EE3;}
+
+           

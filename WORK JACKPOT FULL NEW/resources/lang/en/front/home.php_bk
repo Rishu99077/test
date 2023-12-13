@@ -1,0 +1,46 @@
+<?php
+return [
+
+	'text_work_jackpot' => 'Work Jackpot',
+	'text_home' => 'Home',
+	'text_about_us' => 'About Us',
+	'text_how_it_work' => 'How it Work',
+	'text_faq' => 'FAQ',
+	'text_contact_us' => 'Contact us',
+
+	'text_welcome_to' => 'Welcome To',
+	'text_find_jobs' => 'Find The Job That Fits',
+	'text_your_life' => 'Your Life',
+
+	'text_login' => 'Login',
+	'text_registeration' => 'Registration',
+	'text_browse_job' => 'Browse Job Offers',
+	'text_newest_jobs' => 'Newest Jobs',
+	'text_all_jobs' => 'All Jobs',
+	'text_lorem_lipsum' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+	'text_trusted_popular' => 'Trusted & Popular Job Portal',
+	'text_as_a_provider' => 'As A Providers',
+
+
+	'text_get_started' => 'Get Started',
+	'text_as_a_seeker' => 'As A Seeker',
+	'text_registration_searching' => 'Registration, Searching For A Job, Finding Employment Are Free Of Charge For Jobseekers',
+	'text_job_providers_have' => 'Job Prividers Have To Pay Only Contract Basis',
+	'text_what_says' => 'What Says Job Seekers About Us',
+
+	'text_get_started' => 'Get Started',
+	'text_as_a_seeker' => 'As A Seeker',
+	'text_registration_searching' => 'Registration, Searching For A Job, Finding Employment Are Free Of Charge For Jobseekers',
+	'text_job_providers_have' => 'Job Prividers Have To Pay Only Contract Basis',
+
+	'text_add_attach' => 'Add Attachment',
+    'text_first_name' => 'First Name', 
+    'text_famliy_name' => 'Family Name',
+    'text_email_restered' => 'Email Address',
+    'text_phone_number' => 'Phone Number',
+    'text_topic' => 'Topic RR',
+    'text_message' => 'Message',
+    'text_all_rights' => 'All Rights Reserved',
+    'text_submit' => 'Submit',
+
+];
