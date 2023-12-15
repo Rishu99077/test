@@ -1,0 +1,44 @@
+.already_image_sec{
+	margin-bottom: 30px;
+	width: 150px;
+	position: relative;
+}
+.already_image_sec img{
+	width: 100%;
+}
+.removeImage{
+    color: red;
+    border: 2px solid red;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: block;
+    text-align: center;
+    padding-top: 2px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.tableoptions table:not(:first-child) tr:last-child  th:nth-child(2),
+.tableoptions table:not(:first-child) tr:last-child  th:nth-child(3),
+.tableoptions table:not(:first-child) tr:last-child  th:nth-child(4),
+.tableoptions table:not(:first-child) tr:last-child  th:nth-child(5),
+.tableoptions table:not(:first-child) tr:last-child  th:nth-child(6),
+.tableoptions table:not(:first-child) tr:last-child  th:nth-child(7){
+    display: none;
+}
+
+.tableoptions table:not(:first-child) tr:not(:first-child)  td:nth-child(2),
+.tableoptions table:not(:first-child) tr:not(:first-child)  td:nth-child(3),
+.tableoptions table:not(:first-child) tr:not(:first-child)  td:nth-child(4),
+.tableoptions table:not(:first-child) tr:not(:first-child)  td:nth-child(5),
+.tableoptions table:not(:first-child) tr:not(:first-child)  td:nth-child(6),
+.tableoptions table:not(:first-child) tr:not(:first-child)  td:nth-child(7){
+    display: none;
+}
+
+table:not(:first-child) {
+    background: #ffd25c6e;
+}

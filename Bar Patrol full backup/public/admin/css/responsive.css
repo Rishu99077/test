@@ -1,0 +1,413 @@
+/* *RESPONSIVE */
+
+@media screen and (max-width: 1400px) {
+  .logo span{padding-left: 0; margin-left: -5px; font-size: 18px;}
+  .logo {
+      padding-left: 0px;
+  }
+  .left_menu{width: 228px;}
+  .main_right {
+    width: calc(100% - 228px);
+  }
+  .left_menu.close{width: 84px;}
+  .main_right.open {
+    width: calc(100% - 84px);
+  }
+  .nav_menu li a{
+    padding: 10px 12px;
+    font-size: 15px;
+    width: calc(100% - 13px);
+  }
+  .left_menu.close .logo img {
+      transform: scale(.9);
+  }
+
+  .ver_scroll{padding: 12px 0;}
+  .top_sec {
+      padding-bottom: 20px;
+  }
+  .nav_menu{padding-top: 30px;}
+  .toggle_nav svg {
+      width: 19px;
+      height: 19px;
+  }
+
+  .dish_box > p {
+    margin-bottom: 12px !important;
+    line-height: 1.3;
+}
+.f20 {
+  font-size: 18px;
+}
+ul.inner_item {
+  padding: 18px 0 0 44px;
+}
+
+}
+
+
+@media screen and (max-width: 1199px) {
+
+  ul.inner_item {
+    padding: 18px 0 0 37px;
+  }
+  .dish_box {
+    width: 31.6%;
+  }
+  .dish_box:nth-child(4n) {
+    margin-right: 2.5%;
+  }
+  .dish_box:nth-child(3n) {
+    margin-right: 0;
+  }
+  .search input[type="search"] {
+    width: 85%;
+  }
+  .title {
+    font-size: 40px;
+  }
+  .f20 {
+    font-size: 17px;
+  }
+  .top_ann_right {
+    width: 28%;
+  }
+  .f28 {
+    font-size: 26px;
+  }
+
+  /* add  */
+  .add_inve_box input {
+    padding: 14px 15px;
+  }
+  span.sel_drop {
+    top: 25px;
+    right: 19px;
+}
+.f24 {
+  font-size: 22px;
+}
+
+/* all */
+.all_inve_tab thead th {
+  font-size: 17px;
+}
+.all_inve_tab thead th {
+  padding: 0 3px 3px;
+  font-size: 15px;
+}
+.all_inve_tab {
+  padding-right: 0;
+}
+.switch--shadow + label:after {
+  top: 2.5px;
+}
+
+
+
+
+}
+
+@media screen and (max-width: 991px) {
+ .search {
+    width: 100%;
+}
+.top_ann_left {
+  width: 100%;
+  margin-bottom: 10px;
+
+}
+.top_announce {
+  border-radius: 18px;
+  flex-wrap: wrap;
+}
+.top_ann_center {
+  width: 41%;
+}
+.top_ann_right {
+  width: 48%;
+}
+.not_box {
+  width: 38px;
+  height: 38px;
+}
+.not_box img {
+  max-width: 19px;
+}
+.title {
+  font-size: 36px;
+}
+
+.f28 {
+  font-size: 25px;
+}
+span.todd {
+  font-size: 16px;
+}
+.f18 {
+  font-size: 16px;
+}
+.main_right {
+  width: calc(100% - 217px);
+}
+.left_menu {
+  width: 217px;
+}
+.dish_box > p {
+  font-size: 16px;
+}
+.main_right {
+  padding: 30px 20px 30px 15px;
+}
+
+/* add */
+.mb_40 {
+  margin-bottom: 35px;
+}
+.announce_ban {
+  padding: 15px 20px 15px 20px;
+}
+.f24 {
+    font-size: 21px;
+}
+.rec_btn {
+  font-size: 15px;
+}
+a.rec_btn svg {
+    position: relative;
+    width: 13px;
+    height: 13px;
+    top: -2px;
+}
+add_inve_main {
+  padding: 35px 0px 10px 0;
+}
+.mt_75 {
+  margin-top: 50px;
+}
+
+
+/* all */
+.all_inve_tab tbody tr td {
+  
+  font-size: 15px;
+} 
+.all_inve_tab thead th {
+  padding: 0 6px 3px;
+}
+.all_inve_main {
+  padding-top: 0;
+}
+
+
+  }
+
+@media screen and (max-width: 767px) {
+  
+  .toggle {
+      padding-left: 0;
+      position: fixed;
+      top: 30px;
+      left: 16px;
+      transition: var(--transition);
+  }
+  .left_menu {
+      padding-top: 50px;
+      left: 0;
+      top: 0;
+      border-radius: 0;
+  }
+  .left_menu.close .toggle {
+    top: -29px;
+    left: 20px;
+    transition: var(--transition);
+    background-color: transparent;
+    z-index: 99;
+}
+  .left_menu.close .toggle rect{
+      fill: var(--black);
+  }
+  .left_menu.close .toggle path{
+      fill: #fff;
+  }
+  .left_menu.close {
+    width: 0;
+    transition: 0s ;
+  }
+  body.overlay {
+      overflow: hidden;
+      position: relative;
+  }
+  body.overlay::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: rgb(0 0 0 / 10%);
+      position: fixed;
+      left: 0;
+      top: 0;
+  }
+  .left_menu.close .top_sec::before {
+      width: 100%;
+      left: 0;
+  }
+
+  /*  */
+
+  /*  */
+  .main_right.open, .main_right {
+    width: 100%;
+  }
+
+  .dish_box {
+    width: 48.6%;
+  }
+  .dish_box:nth-child(3n) {
+    margin-right: 2.5%;
+  }
+  .dish_box:nth-child(2n) {
+    margin-right: 0;
+  }
+  ul.nav_menu + .mb_60 {
+    overflow: hidden;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.newClass .left_menu.close .toggle {
+  background: #000 !important;
+  width: 22px;
+  border-radius: 50% !important;
+}
+
+}
+
+@media screen and (max-width: 575px) {
+  .left_menu{width: 0;}
+ 
+  .left_menu.close .ver_scroll {
+    padding: 20px 15px;
+  }
+  .nav_menu li a {
+    padding: 9px 13px;
+}
+  .nav_menu {
+    padding-top: 40px;
+    margin-top: 20px;
+  }
+  /* .logo img {
+    max-width: 100%;
+    width: 70px;
+  } */
+ 
+  .nav_menu {
+      padding-top: 20px;
+  }
+  /* .nav_menu li {
+      margin-bottom: 25px;
+  } */
+
+  /*  */
+  .main_right {
+    padding: 25px 15px 25px 15px;
+}
+.left_menu.close .toggle {
+  top: -27px;
+  left: 9px;
+}
+.search input[type="search"] {
+  width: 100%;
+  padding: 8px;
+  padding-left: 46px;
+}
+.title {
+  font-size: 28px;
+}
+.top_ann_right {
+  width: 100%;
+}
+.top_ann_center {
+  width: 100%;
+  margin-top: 15px;
+  order: 3;
+}
+.f28 {
+  font-size: 22px;
+}
+.dish_box {
+  width: 100%;
+  margin-bottom: 20px;
+  margin-right: 0 !important;
+}
+span.todd {
+  font-size: 15px;
+}
+.left_menu {
+  width: 228px;
+}
+.left_menu {
+  padding-top: 35px;
+}
+.nav_menu {
+  padding-top: 0;
+}
+ul.inner_item {
+  padding: 18px 0 18px 30px;
+}
+.mb_60 {
+  margin-bottom: 40px;
+}
+.nav_menu {
+  height: calc(100% - 170px);
+}
+
+/* add */
+.announce_ban {
+  flex-wrap: wrap;
+}
+.announce_ban > div {
+  width: 100%;
+}
+.announce_ban > div:last-child {
+  margin-top: 15px;
+  text-align: right;
+}
+.mb_40 {
+  margin-bottom: 30px;
+}
+.add_inve_main {
+  padding: 30px 0px 10px 0;
+}
+.mb_30 {
+  margin-bottom: 25px;
+}
+.add_inve_box label {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.mt_75 {
+  margin-top: 30px;
+}
+
+
+/* all */
+.all_inve_tab table {
+  width: 436px;
+}
+.all_inve_tab {
+  overflow-x: scroll;
+}
+.rec_btn {
+  font-size: 14px;
+}
+
+a.rec_btn svg {
+    position: relative;
+    width: 13px;
+    height: 13px;
+    top: -2px;
+}
+
+}
