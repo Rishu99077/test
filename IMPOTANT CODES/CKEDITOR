@@ -1,0 +1,24 @@
+<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+  <script>
+        CKEDITOR.replace( 'editor' );
+  </script>
+
+  var count = 1;
+$('body').on('click', "#add", function(e) {
+
+        var highlights_html = '';
+        highlights_html+='<div class="col-md-6">';
+        highlights_html+='<label class="form-label" for="title">Higlights Title<span class="text-danger">*</span></label>';  
+        highlights_html+='<input class="form-control" name="highlights_title[]" type="text" placeholder="Enter Higlights Title" />';
+        highlights_html+='</div>';
+        highlights_html+='<div class="col-md-12">';
+        highlights_html+='<label class="form-label" for="title">Higlights Description<span class="text-danger">*</span></label>'; 
+        highlights_html+='<textarea name="highlights_description[]" class="form-control footer_text" id="footer_text_'+count+'" placeholder="Enter Higlights Description"></textarea>'; 
+        highlights_html+='</div>';
+
+
+        $('.show_highlights').append(highlights_html);
+        CKEDITOR.replace( 'footer_text_'+count);
+        e.preventDefault();
+        count++;
+    });
